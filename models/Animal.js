@@ -1,3 +1,9 @@
+/*
+ * models/Animal.js
+ * This is an example model that defines a animal and identifies some of their
+ * speaking mechanisms.
+ */
+
 var db     = require('../helpers/db.js');
 var Schema = db.Schema;
 
@@ -14,7 +20,8 @@ animalSchema.methods.findSimilarTypes = function (cb) {
 
 animalSchema.methods.speak = function () {
     if (this.type === "Dog") console.log("Dog barks BOW BOW !!!");
-    if (this.type === "Cat") console.log("Cat whispers MEOW MEOW !!!");
+    else if (this.type === "Cat") console.log("Cat whispers MEOW MEOW !!!");
+    else console.log("Sorry, Animal type unknown !!!");
 };
 
 module.exports = db.model("Animal", animalSchema);
